@@ -20,14 +20,14 @@ public class Main {
                 uniformes.add(new Uniforme(corTamanho[0], corTamanho[1], temp));
             }
         }
-        //Passo a Lista
+        //Passo a Lista que quero sortear e a regra de ordenação. Neste caso a classe Comparando
         Collections.sort(uniformes, new comparando());
         uniformes.stream().forEach(System.out::println);
     }
 }
 /**
-3-Crio a classe uso @override no metodo compare
-Quando retorna 0 os valores são iguais se retornarem -1,1 sao diferentes
+3-Crio a classe com a regra de ordenação e uso @override no metodo compare pasando minha regra.
+ Quando retorna 0 os valores são iguais se retornarem -1,1 sao diferentes
 Então verifiquei onde se a cor for igual ele verifica o tamanho caso seja igual tambem quem fica responsavel pela
 ordem é nome;
 */
