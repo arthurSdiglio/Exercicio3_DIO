@@ -9,6 +9,8 @@ public class Main {
         List<Uniforme> uniformes = new ArrayList<>();
         int tamanho = Integer.parseInt(br.readLine());
 
+        //1-Leitura das entradas. Onde instancio a classe Uniforme que salva os valores
+        //Cor, Tamanho e nomePessoa em lugares(variaveis) diferentes para poder sortear.
         while (true) {
             String temp = br.readLine();
             if (temp.equals("0")) {
@@ -18,11 +20,17 @@ public class Main {
                 uniformes.add(new Uniforme(corTamanho[0], corTamanho[1], temp));
             }
         }
+        //Passo a Lista
         Collections.sort(uniformes, new comparando());
         uniformes.stream().forEach(System.out::println);
     }
 }
-
+/**
+3-Crio a classe uso @override no metodo compare
+Quando retorna 0 os valores são iguais se retornarem -1,1 sao diferentes
+Então verifiquei onde se a cor for igual ele verifica o tamanho caso seja igual tambem quem fica responsavel pela
+ordem é nome;
+*/
 class comparando implements Comparator<Uniforme> {
 
     @Override
@@ -35,7 +43,12 @@ class comparando implements Comparator<Uniforme> {
     }
 }
 
-class Uniforme{
+/**
+2-Criei a classe Uniforme passando os valores de entrada em variaveis diferentes
+Fiz um @override no metodo toString para quando eu percorrer cada classe da lista 'Uniformes'
+Mostrar as variaveis/msg do jeito que eu quero.
+*/
+ class Uniforme{
     private String cor;
     private String tamanho;
     private String nome;
