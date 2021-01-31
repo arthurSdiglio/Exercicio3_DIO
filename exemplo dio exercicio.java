@@ -10,7 +10,7 @@ public class Main {
         int tamanho = Integer.parseInt(br.readLine());
 
         //1-Leitura das entradas. Onde instancio a classe Uniforme que salva os valores
-        //Cor, Tamanho e nomePessoa em lugares(variaveis) diferentes para poder sortear.
+        //Cor, Tamanho e nomePessoa em lugares(variaveis) diferentes para poder usar como regra de ordenação.
         while (true) {
             String temp = br.readLine();
             if (temp.equals("0")) {
@@ -20,16 +20,16 @@ public class Main {
                 uniformes.add(new Uniforme(corTamanho[0], corTamanho[1], temp));
             }
         }
-        //Passo a Lista que quero sortear e a regra de ordenação. Neste caso a classe Comparando
+        //4-Passo a Lista que quero sortear e a regra de ordenação. Neste caso a classe Comparando
         Collections.sort(uniformes, new comparando());
         uniformes.stream().forEach(System.out::println);
     }
 }
 /**
-3-Crio a classe com a regra de ordenação e uso @override no metodo compare pasando minha regra.
+3-Crio a classe com a regra de ordenação e uso @override no metodo compare passando minha regra de ordenação.
  Quando retorna 0 os valores são iguais se retornarem -1,1 sao diferentes
-Então verifiquei onde se a cor for igual ele verifica o tamanho caso seja igual tambem quem fica responsavel pela
-ordem é nome;
+Então verifiquei, onde a cor for igual ele verifica o tamanho, caso seja igual tambem, o responsavel pela
+ordenação é o nome;
 */
 class comparando implements Comparator<Uniforme> {
 
